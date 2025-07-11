@@ -16,13 +16,26 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&display=swap" rel="stylesheet">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <%#= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body>
+  <body class="h-screen">
+  <%= render 'shared/navbar' %>
+
+  <div class="max-w-screen-xl mx-auto p-1 md:p-4">
     <%= yield %>
-  </body>
+  </div>
+
+  <footer class="w-full absolute bottom-0">
+    <div class="max-w-screen-xl mx-auto p-1 md:p-4 text-center text-neutral-700 dark:text-neutral-200">
+      <p>&copy; TECHBRAIN <%= Date.today.year %> All Rights Reserved</p>
+    </div>
+  </footer>
+</body>
 </html>
